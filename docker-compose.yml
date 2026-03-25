@@ -1,0 +1,16 @@
+services:
+  app:
+    image: todo-list:prod
+    container_name: todo-list-prod
+    build:
+      context: .
+      dockerfile: dockerfile
+    ports:
+      - "${APP_PORT}:80"
+    networks:
+      - todo-network
+    restart: always
+
+networks:
+  todo-network:
+    driver: bridge

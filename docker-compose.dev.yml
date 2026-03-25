@@ -1,0 +1,20 @@
+services:
+  app:
+    image: todo-list:1.0
+    container_name: todo-list-dev
+    build:
+      context: .
+      dockerfile: dockerfile.dev
+    ports:
+      - "${APP_PORT}:4200"
+    networks:
+      - todo-network
+    develop:
+      watch:
+        - action: sync
+          path: .
+          target: /app
+
+networks:
+  todo-network:
+    driver: bridge

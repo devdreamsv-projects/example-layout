@@ -1,0 +1,6 @@
+@reference "tailwindcss";
+
+.title {
+    @apply text-2xl font-bold mb-6;
+    color: var(--text-color);
+}

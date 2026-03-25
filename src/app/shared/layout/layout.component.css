@@ -1,0 +1,72 @@
+
+@reference "tailwindcss";
+
+/* Navbar */
+.navbar {
+    @apply top-0 left-0 right-0 fixed h-14 border-b flex items-center px-4 z-20;
+    background-color: var(--bg-navigation);
+    color: var(--muted-text-color);
+    border-color: var(--border-color);
+}
+
+/* Navbar elements */
+.title {
+    @apply w-55 text-lg font-bold shrink-0;
+    color: var(--color-primary);
+}
+
+.greenting-container {
+    @apply flex-1 flex items-center gap-4 font-medium;
+}
+
+.greenting-text {
+    @apply text-gray-500 text-sm;
+    color: var(--text-color);
+}
+
+.user-menu {
+    @apply flex items-center gap-4;
+}
+
+.user-menu button {
+    @apply w-8 h-8 rounded-full font-semibold text-sm flex items-center justify-center;
+    background-color: var(--color-primary-light);
+    color: var(--color-primary);
+}
+
+.icon-moon {
+    color: var(--color-primary);
+}
+
+.icon-sun {
+    color: var(--color-yellow);
+}
+
+/* Sidebar */
+
+.sidebar {
+    @apply fixed top-14 left-0 bottom-0 w-55 border-r flex flex-col z-10 overflow-y-auto;
+    background-color: var(--bg-navigation);
+    border-color: var(--border-color);
+}
+
+/* Sidebar elements */
+.navigation-container {
+    @apply flex flex-col gap-1 p-3;
+}
+
+.option {
+    @apply flex items-center gap-3 px-3 py-2 rounded-lg text-sm text-gray-700 transition-colors;
+    color: var(--text-color);
+}
+
+.option:hover {
+    background-color: var(--color-primary-light);
+    color: var(--color-primary);
+}
+
+.option-active {
+    @apply font-semibold;
+    background-color: var(--color-primary-light);
+    color: var(--color-primary);
+}

@@ -1,0 +1,54 @@
+<h1 class="title">Settings</h1>
+
+<section aria-labelledby="theme-heading">
+	<h2 id="theme-heading" class="section-title">
+			Color de la aplicación
+	</h2>
+	<div class="flex gap-3">
+		@for (color of colors; track color.key) {
+			<label class="cursor-pointer">
+				<input
+					type="radio"
+					name="theme-color"
+					[value]="color.key"
+					[checked]="isChecked(color)"
+					(change)="changeColor(color)"
+					[attr.aria-label]="color.label"
+					class="sr-only"
+				/>
+				<span
+					class="option-color"
+					[style.background-color]="color.hex"
+					[style.border-color]="getBorderColor(color)"
+					[style.box-shadow]="getBoxShadow(color)"
+				></span>
+			</label>
+		}
+	</div>
+</section>
+
+<section aria-labelledby="dark-mode-heading" class="mt-6">
+	<h2 id="dark-mode-heading" class="section-title">Modo oscuro</h2>
+
+	<label class="inline-flex items-center gap-3 cursor-pointer">
+		<input
+				type="checkbox"
+				class="sr-only"
+				[checked]="isDarkMode()"
+				(change)="toggleDarkMode($event)"
+				aria-label="Activar modo oscuro"
+		/>
+		<span
+				class="switch"
+				[class.switch--on]="isDarkMode()"
+				aria-hidden="true"
+		></span>
+		<span class="inline-flex items-center gap-2">
+		@if (isDarkMode()) {
+			<span class="text-md" style="color: var(--text-color)">Activado</span>
+		} @else {
+			<span class="text-md" style="color: var(--text-color)">Desactivado</span>
+		}
+		</span>
+	</label>
+</section>

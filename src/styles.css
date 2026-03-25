@@ -1,1 +1,89 @@
 /* You can add global styles to this file, and also import other style files */
+@import "tailwindcss";
+
+:root {
+    /* Paleta */
+    --color-red: #ef4444;
+    --color-red-light: #fee2e2;
+    --color-green: #22c55e;
+    --color-green-light: #dcfce7;
+    --color-blue: #3b82f6;
+    --color-blue-light: #dbeafe;
+    --color-yellow: #eab308;
+    --color-yellow-light: #fef9c3;
+    --color-purple: #8b5cf6;
+    --color-purple-light: #ede9fe;
+    --color-cian: #23bac4;
+    --color-cian-light: #cffafe;
+
+    /* Color activo (por defecto: azul) */
+    --color-primary: var(--color-blue);
+    --color-primary-light: var(--color-blue-light);
+
+    /* Modo claro */
+    --bg-color: #F0F0F0;
+    --text-color: #111827;
+    --muted-text-color: #6b7280;
+    --border-color: #e5e7eb;
+    --bg-navigation: #ffffff;
+}
+
+html{
+  color-scheme: light;
+  transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
+  
+}
+
+html.dark {
+  color-scheme: dark;
+  /* Modo oscuro */
+  --bg-color: #0f172a;
+  --text-color: #e5e7eb;
+  --muted-text-color: #9ca3af;
+  --border-color: #374151;
+  --bg-navigation: #1e293b;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+* {
+  transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+}
+
+
+/* View Transition API styles */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+
+::view-transition-new(root) {
+  clip-path: circle(0 at var(--vt-x, 50%) var(--vt-y, 50%));
+  animation: theme-expand 1s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  z-index: 9999;
+}
+
+::view-transition-old(root) {
+  z-index: 1;
+}
+
+@keyframes theme-expand {
+  from {
+    clip-path: circle(0 at var(--vt-x) var(--vt-y));
+  }
+  to {
+    clip-path: circle(var(--vt-r) at var(--vt-x) var(--vt-y));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-new(root),
+  ::view-transition-old(root) {
+    animation: none;
+  }
+}
