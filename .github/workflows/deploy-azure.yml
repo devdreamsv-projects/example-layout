@@ -1,5 +1,5 @@
-name: Deploy to Azure Container Registry\
-
+name: Deploy to Azure Container Registry
+run-name: ${{ github.actor }} is deploying a Docker image to Azure Container Registry 🚀
 on:
   push:
     branches: [develop]
