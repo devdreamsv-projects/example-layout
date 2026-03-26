@@ -12,6 +12,8 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: read
+    environment:
+      name: example-layout-env
 
     steps:
       - name: Checkout Repository
